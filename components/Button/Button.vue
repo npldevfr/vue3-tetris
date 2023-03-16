@@ -25,7 +25,7 @@
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  box-shadow: 0 5px 0 #b71c1c;
+  box-shadow: 0 5px 0 #731E3B;
   transition: all 0.1s ease-in-out;
 
   &:active {

@@ -15,7 +15,7 @@ export class TetrisGame {
         this.board = board;
         this.currentTetromino = this.generateRandomTetromino();
         this.nextTetromino = this.generateRandomTetromino();
-        this.interval = 1000;
+        this.interval = 350;
         this.elapsedTime = 0;
         this.isPaused = false;
         this.isGameOver = false;
@@ -51,8 +51,8 @@ export class TetrisGame {
         }, this.interval);
     }
 
-    togglePause(): void {
-        this.isPaused = !this.isPaused;
+    setPaused(paused: boolean): void {
+        this.isPaused = paused;
     }
 
     moveTetromino(offset: IPoint): boolean {

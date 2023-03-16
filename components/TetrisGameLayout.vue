@@ -17,8 +17,10 @@ onUnmounted(() => {
   window.removeEventListener("keydown", handleKeyDown);
 });
 
+
+
 const handleKeyDown = (event: KeyboardEvent) => {
-  if (!game.value) return;
+  if (!game.value || game.value.isPaused) return;
 
   switch (event.key) {
     case "ArrowUp":
@@ -43,20 +45,23 @@ const handleKeyDown = (event: KeyboardEvent) => {
 
 <template>
   <div class="TetrisGame" v-if="game">
+
     score : {{ game.board.score }}
     prochain : <NextTetromino :next-tetromino="game.nextTetromino" />
-    <Button @click="game.togglePause()">
-      {{ game.isPaused ? "Reprendre" : "Pause" }}
-    </Button>
+
 
     <TetrisTimer :elapsed-time="game.elapsedTime" />
 
     <TetrisBoard :board="game.board" :current-tetromino="game.currentTetromino"/>
+
+
+
   </div>
 </template>
 
 <style lang="scss" scoped>
 .TetrisGame {
+  color: white;
   outline: none;
 }
 </style>

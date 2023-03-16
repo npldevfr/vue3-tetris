@@ -64,6 +64,7 @@ export class Board {
     }
 
     merge(tetromino: ITetromino): void {
+        this.emit("tetrominoMerged", { tetromino });
         for (let y = 0; y < tetromino.shape.length; y++) {
             for (let x = 0; x < tetromino.shape[y].length; x++) {
                 if (tetromino.shape[y][x]) {
