@@ -119,7 +119,7 @@ watch(
   transition: transform 0.2s;
   height: 30px;
   box-sizing: border-box;
-  border: 1px solid rgba(51, 51, 51, 0.20);
+  border: .2px solid rgba(51, 51, 51, 0.20);
 }
 
 
@@ -129,6 +129,7 @@ watch(
 
 .tetromino-i {
   background: #85144b;
+  border: none;
 
   &-applied {
     transform: scale(1.15);
@@ -139,7 +140,7 @@ watch(
 
 .tetromino-j {
   background: #0074d9;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #0074d9;
@@ -150,7 +151,7 @@ watch(
 
 .tetromino-l {
   background: #ff851b;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #ff851b;
@@ -161,7 +162,7 @@ watch(
 
 .tetromino-o {
   background: #ff4136;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #ff4136;
@@ -172,18 +173,18 @@ watch(
 
 .tetromino-s {
   background: #f012be;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #f012be;
-    border: none;
 
+    border: none;
   }
 }
 
 .tetromino-t {
   background: #ffdc00;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #ffdc00;
@@ -194,7 +195,7 @@ watch(
 
 .tetromino-z {
   background: #2ecc40;
-
+  border: none;
   &-applied {
     transform: scale(1.15);
     background: #2ecc40;
