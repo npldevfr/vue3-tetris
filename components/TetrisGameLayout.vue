@@ -45,6 +45,9 @@ const handleKeyDown = (event: KeyboardEvent) => {
   <div class="TetrisGame" v-if="game">
     score : {{ game.board.score }}
     prochain : <NextTetromino :next-tetromino="game.nextTetromino" />
+    <Button @click="game.togglePause()">
+      {{ game.isPaused ? "Reprendre" : "Pause" }}
+    </Button>
 
     <TetrisTimer :elapsed-time="game.elapsedTime" />
 

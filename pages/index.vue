@@ -1,16 +1,16 @@
 <script lang="ts" setup>
+const user = useSupabaseUser()
+const {auth} = useSupabaseAuthClient()
 </script>
 
 <template>
-  <TetrisGameLayout />
+  <div v-if="user">{{ user }}</div>
+  <div v-else @click="auth.signInWithOAuth({ provider: 'discord' })">Se connecter avec discord</div>
+  <TetrisGameLayout/>
 </template>
 
 <style lang="scss" scoped>
-.Snake {
-  border: 1px solid #000;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.TetrisGame {
+
 }
 </style>

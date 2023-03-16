@@ -85,7 +85,7 @@ watch(
 .board-cell {
   width: 30px;
   height: 30px;
-  border: 1px solid #ccc;
+  border: 1px solid rgba(204, 204, 204, 0.25);
 }
 
 .board-cell-filled {

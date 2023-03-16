@@ -7,6 +7,7 @@ export class TetrisGame {
     currentTetromino: Tetromino;
     interval: number;
     isGameOver: boolean;
+    isPaused: boolean;
     nextTetromino: Tetromino;
     elapsedTime: number;
 
@@ -14,8 +15,9 @@ export class TetrisGame {
         this.board = board;
         this.currentTetromino = this.generateRandomTetromino();
         this.nextTetromino = this.generateRandomTetromino();
-        this.interval = 1000; // Vitesse de chute initiale
+        this.interval = 1000;
         this.elapsedTime = 0;
+        this.isPaused = false;
         this.isGameOver = false;
     }
 
@@ -29,22 +31,28 @@ export class TetrisGame {
         }
 
         setTimeout(() => {
-            this.elapsedTime += this.interval / 1000;
+            if (!this.isPaused) {
+                this.elapsedTime += this.interval / 1000;
 
-            if (!this.moveTetromino({x: 0, y: 1})) {
-                this.board.merge(this.currentTetromino);
-                this.board.clearFullRows(); // Ajoutez cette ligne
-                this.currentTetromino = this.nextTetromino;
-                this.nextTetromino = this.generateRandomTetromino();
+                if (!this.moveTetromino({x: 0, y: 1})) {
+                    this.board.merge(this.currentTetromino);
+                    this.board.clearFullRows(); // Ajoutez cette ligne
+                    this.currentTetromino = this.nextTetromino;
+                    this.nextTetromino = this.generateRandomTetromino();
 
-                if (!this.board.isValidMove(this.currentTetromino, this.currentTetromino.position)) {
-                    this.isGameOver = true;
-                    return;
+                    if (!this.board.isValidMove(this.currentTetromino, this.currentTetromino.position)) {
+                        this.isGameOver = true;
+                        return;
+                    }
                 }
             }
 
             this.gameLoop();
         }, this.interval);
+    }
+
+    togglePause(): void {
+        this.isPaused = !this.isPaused;
     }
 
     moveTetromino(offset: IPoint): boolean {
